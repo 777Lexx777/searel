@@ -13,7 +13,7 @@ public class HibernateSessionFactoryUtil {
 //        if (sessionFactory == null) {
 //            try {
 //                Configuration configuration = new Configuration();//.configure();
-//               // configuration.configure("hibernate.properties");
+//               // configuration.configure("");
 //                //configuration.addAnnotatedClass(Person.class);
 //                StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
 //                    .applySettings(configuration.getProperties());
