@@ -38,7 +38,7 @@
             {
               "handler": "ClientHandler",
               "capture": "all",
-              "baseURI": "${system['fscc.ui']}"
+              "baseURI": "${system['']}"
             }
           ]
         }
