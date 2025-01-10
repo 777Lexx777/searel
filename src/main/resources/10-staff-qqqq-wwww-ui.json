@@ -1,0 +1,48 @@
+{
+  "name": "${matches(request.uri.path, '^/ui/rb/qqqq/wwww')}",
+  "condition": "${matches(request.uri.path, '^/ui/rb/qqqq/wwww')}",
+  "monitor": true,
+  "timer": true,
+  "handler": {
+    "type": "Chain",
+    "config": {
+      "filters": [
+        {
+          "type": "HeaderFilter",
+          "config": {
+            "messageType": "REQUEST",
+            "remove": ["Host"],
+            "add": {
+              "Host" :["${matchingGroups(system['qqqq.wwww.ui'],\"https:\/\/(.[^\/]*)\")[2]}"]
+            }
+          }
+        },
+        {
+          "type": "ScriptableFilter",
+          "config": {
+            "type": "application/x-groovy",
+            "file": "policyAdvice.groovy",
+            "args": {
+              "advices": [
+                {"realm": "/staff",			"action": "Войти", "service": "oauth2token"},
+                {"realm": "/staff",			"action": "Войти", "service": "default"}
+              ]
+            }
+          }
+        }
+      ],
+      "handler": {
+        "type": "DispatchHandler",
+        "config": {
+          "bindings": [
+            {
+              "handler": "ClientHandler",
+              "capture": "all",
+              "baseURI": "${system['qqqq.wwww.ui']}"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
