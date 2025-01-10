@@ -1,0 +1,48 @@
+{
+  "name": "${matches(request.uri.path, '^')}",
+  "condition": "${matches(request.uri.path, '^')}",
+  "monitor": true,
+  "timer": true,
+  "handler": {
+    "type": "Chain",
+    "config": {
+      "filters": [
+        {
+          "type": "HeaderFilter",
+          "config": {
+            "messageType": "REQUEST",
+            "remove": ["Host"],
+            "add": {
+              "Host" :["${matchingGroups(system[''],\"https:\/\/(.[^\/]*)\")[2]}"]
+            }
+          }
+        },
+        {
+          "type": "ScriptableFilter",
+          "config": {
+            "type": "application/x-groovy",
+            "file": "policyAdvice.groovy",
+            "args": {
+              "advices": [
+                {"realm": "/",			"action": "Войти", "service": "oauth2token"},
+                {"realm": "/",			"action": "Войти", "service": "default"}
+              ]
+            }
+          }
+        }
+      ],
+      "handler": {
+        "type": "DispatchHandler",
+        "config": {
+          "bindings": [
+            {
+              "handler": "ClientHandler",
+              "capture": "all",
+              "baseURI": "${system['']}"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
