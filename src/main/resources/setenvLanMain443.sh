@@ -443,4 +443,4 @@ export CATALINA_OPTS="$CATALINA_OPTS -Dsurp.ui=https://settlement-ui-ss5-genr04-
 export CATALINA_OPTS="$CATALINA_OPTS -Dcross.tsac.k8otpl=https://admcons-ts-ik5-tslg02-tsac-omnitech.oslb-synt01.test.vtb.ru"
 export CATALINA_OPTS="$CATALINA_OPTS -Dgdcr_cppa.user.ui=https://lkz-user-synt.ss5-genr02-lkzc-synth.apps.ss5-genr02.test.vtb.ru"
 export CATALINA_OPTS="$CATALINA_OPTS -Dspms.spms-templates-management.ui=https://spms-templates-management.spms-iftest.apps.ss1-genr01.test.vtb.ru"
-export CATALINA_OPTS="$CATALINA_OPTS -Dels.limit-ipl-secondary.ui=https://ipl-front-secondary-ss5-genr02-elsc-synt.apps.ss5-genr02.test.vtb.ru"export CATALINA_OPTS="$CATALINA_OPTS -Daaaa.ttt=https;//aaa/ttt.ru
+export CATALINA_OPTS="$CATALINA_OPTS -Dels.limit-ipl-secondary.ui=https://ipl-front-secondary-ss5-genr02-elsc-synt.apps.ss5-genr02.test.vtb.ru"
