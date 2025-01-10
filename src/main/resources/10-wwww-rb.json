@@ -1,6 +1,6 @@
 {
-  "name": "${matches(request.uri.path, '^/ui/smb/fscc/qqqqq')}",
-  "condition": "${matches(request.uri.path, '^/ui/smb/fscc/qqqqq')}",
+  "name": "${matches(request.uri.path, '^')}",
+  "condition": "${matches(request.uri.path, '^')}",
   "monitor": true,
   "timer": true,
   "handler": {
@@ -24,8 +24,8 @@
             "file": "policyAdvice.groovy",
             "args": {
               "advices": [
-                {"realm": "/staff",			"action": "Войти", "service": "oauth2token"},
-                {"realm": "/staff",			"action": "Войти", "service": "default"}
+                {"realm": "/",			"action": "Войти", "service": "oauth2token"},
+                {"realm": "/",			"action": "Войти", "service": "default"}
               ]
             }
           }
