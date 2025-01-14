@@ -445,3 +445,5 @@ export CATALINA_OPTS="$CATALINA_OPTS -Dgdcr_cppa.user.ui=https://lkz-user-synt.s
 export CATALINA_OPTS="$CATALINA_OPTS -Dspms.spms-templates-management.ui=https://spms-templates-management.spms-iftest.apps.ss1-genr01.test.vtb.ru"
 #rrr
 export CATALINA_OPTS="$CATALINA_OPTS -Daaaa.tttr=host"
+
+export CATALINA_OPTS="$CATALINA_OPTS -Dqqq.eeee.ui=https://qqq/fff/ggg.ru"
