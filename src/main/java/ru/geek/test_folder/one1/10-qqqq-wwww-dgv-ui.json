@@ -1,0 +1,48 @@
+{
+  "name": "${matches(request.uri.path, '^/ui/smb/qqqq/wwww/dgv')}",
+  "condition": "${matches(request.uri.path, '^/ui/smb/qqqq/wwww/dgv')}",
+  "monitor": true,
+  "timer": true,
+  "handler": {
+    "type": "Chain",
+    "config": {
+      "filters": [
+        {
+          "type": "HeaderFilter",
+          "config": {
+            "messageType": "REQUEST",
+            "remove": ["Host"],
+            "add": {
+              "Host" :["${matchingGroups(system['qqqq.wwww.dgv.ui'],\"https:\/\/(.[^\/]*)\")[2]}"]
+            }
+          }
+        },
+        {
+          "type": "ScriptableFilter",
+          "config": {
+            "type": "application/x-groovy",
+            "file": "policyAdvice.groovy",
+            "args": {
+              "advices": [
+                {"realm": "/b2c/app/smmb",			"action": "Войти", "service": "oauth2token"},
+                {"realm": "/b2c/app/smmb",			"action": "Войти", "service": "default"}
+              ]
+            }
+          }
+        }
+      ],
+      "handler": {
+        "type": "DispatchHandler",
+        "config": {
+          "bindings": [
+            {
+              "handler": "ClientHandler",
+              "capture": "all",
+              "baseURI": "${system['qqqq.wwww.dgv.ui']}"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
